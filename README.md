@@ -65,19 +65,23 @@ Returns a paginated list of all shows for a venue with specified `[:venue_id]` A
 
 # Setup/Installation Requirements
 
-## Intial project setup
+## Intial Project Setup
 
 - Ruby is required, download and install [https://www.ruby-lang.org/en/documentation/installation/](https://www.ruby-lang.org/en/documentation/installation/)
 - Bundler is required, install using the terminal with `gem install bundler`
 - Ensure PostgreSQL is installed and correctly running on your local machine
 - Create a directory to clone the public repository from GitHub using `git clone https://github.com/mireie/music_calendar_api`
 - Enter the root of the project directory and install all gems with `bundle install`
+
+## Intializing the Database
 - Update the `config/database.yml` file to match your PostgreSQL setup
+- Initialize the database with `rake db:migrate`
+    - If you encounter errors here, your `database.yml` file is likely not set up correctly and you skipped the previous step!
 - Seed the database with venues and reviews with the terminal command `rake db:seed`
-    - If you encounter errors here, your `database.yml` file is likely not set up correctly and you skipped a step!
-- To run tests, in the terminal run `rspec`
+
+## Running the Application
 - To run the site on your local machine in the terminal run `rails s`
-- Open your browser and navigate to `localhost:3000` (default configuration)
+- Open your browser and navigate to `localhost:3000/api/v1/` (default configuration) and use the endpoints listed above to retrieve data from the api
 
 # Links
 
