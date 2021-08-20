@@ -1,5 +1,6 @@
 class Show < ApplicationRecord
-  [:title, :artist1, :showtime, :location, :details, :price].each do |field|
+  belongs_to :venue
+  [:title, :artist1, :showtime, :venue_id, :details, :price].each do |field|
     validates field, presence: true
   end
   scope :upcoming, -> {where("showtime >= ?", DateTime.now)}
