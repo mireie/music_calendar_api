@@ -22,13 +22,14 @@ ActiveRecord::Schema.define(version: 2021_08_20_182307) do
     t.string "artist3"
     t.string "artist4"
     t.datetime "showtime"
-    t.string "location"
     t.text "details"
     t.decimal "price", precision: 8, scale: 2
     t.boolean "all_ages"
     t.string "url"
+    t.bigint "venue_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["venue_id"], name: "index_shows_on_venue_id"
   end
 
   create_table "venues", force: :cascade do |t|

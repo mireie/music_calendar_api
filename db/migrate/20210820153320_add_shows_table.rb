@@ -11,7 +11,7 @@ class AddShowsTable < ActiveRecord::Migration[6.1]
       t.decimal :price, :precision => 8, :scale => 2
       t.boolean :all_ages
       t.string :url
-      t.integer :venue_id
+      t.belongs_to :venue
       t.timestamps
     end
   end
