@@ -1,8 +1,12 @@
 class ShowsController < ApplicationController
+  before_action :set_venue
 
   def index
-    @shows = Show.page(params[:page])
-    json_response(@shows)
+    if @venue 
+      json_response(@venue.shows.page)
+    else
+      json_response(Show.all.page)
+    end
   end
 
   def show
@@ -54,5 +58,9 @@ class ShowsController < ApplicationController
   end
 
   private
+
+  def set_venue
+    @venue = @venue.shows.find_by!(id: params[:id]) if @venue
+  end
 
 end

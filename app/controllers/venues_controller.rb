@@ -5,7 +5,7 @@ class VenuesController < ApplicationController
     json_response(@venues)
   end
 
-  def venue
+  def show
     @venue = Venue.find(params[:id])
     json_response(@venue)
   end
@@ -17,18 +17,20 @@ class VenuesController < ApplicationController
 
   def update
     @venue = Venue.find(params[:id])
+    name = @venue.name
     if @venue.update!(venue_params)
       render status: 200, json: {
-        message: "This venue has been updated successfully."
+        message: "#{name} has been updated successfully."
       }
     end
   end
 
   def destroy 
     @venue = Venue.find(params[:id])
+    name = @venue.name
     if @venue.destroy!
       render status:200, json: {
-        message: "This venue has been successfully destroyed."
+        message: "#{name} has been successfully destroyed."
       }
     end
   end
