@@ -21,7 +21,7 @@ class Seed
         city: Faker::Address.city,
         state: Faker::Address.state,
         zip_code: Faker::Address.zip_code,
-        website: "https://music-calendar-api.herokuapp.com/example-venue/#{name.each{|word| word.gsub(' ','-')}.join('-')}"
+        website: "https://music-calendar-api.herokuapp.com/example-venue/#{name.each{|word| word.gsub!(' ','-')}.join('-')}"
       )
       print "."
     end
@@ -51,7 +51,7 @@ class Seed
           showtime: Faker::Time.between_dates(from: Date.today - 14, to: Date.today + 90, period: :evening),
           price: rand(0.00..100.00),
           all_ages: is_all_ages,
-          url: "#{venue.website}/#{name.each{|word| word.gsub(' ','-')}.join('-')}",
+          url: "#{venue.website}/#{name.each{|word| word.gsub!(' ','-')}.join('-')}",
           venue_id: venue.id
         )
         print "."
