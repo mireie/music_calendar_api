@@ -38,6 +38,16 @@ class ShowsController < ApplicationController
     json_response(@shows, 200)
   end
 
+  def next_week
+    @shows = Show.all.next_week.page(params[:page])
+    json_response(@shows, 200)
+  end
+
+  def past
+    @shows = Show.all.past.page(params[:page])
+    json_response(@shows, 200)
+  end
+
   def all_ages
 
   end

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :shows do 
     collection do 
       get 'upcoming'
+      get 'past'
+      get 'next_week'
     end
   end
 end
