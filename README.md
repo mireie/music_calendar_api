@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+Postman info: https://www.postman.com/winter-resonance-398702/workspace/music-calendar-api
