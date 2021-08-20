@@ -4,7 +4,7 @@ Venue.destroy_all
 class Seed
 
   def self.begin
-    p "Clearing the database and seeding new shows and venues, please wait a moment..."
+    puts "Cleaning up after the last mess, please wait a moment..."
     
     seed = Seed.new
     seed.generate_venues
@@ -12,6 +12,7 @@ class Seed
   end
 
   def generate_venues
+    puts "Generating venues."
     rand(50..100).times do |i|
       name = Faker::Hipster.words(number: 2, spaces_allowed: true)
       Venue.create!(
@@ -22,13 +23,16 @@ class Seed
         zip_code: Faker::Address.zip_code,
         website: "https://music-calendar-api.herokuapp.com/example-venue/#{name.join('-')}"
       )
+      print "."
     end
-
+    puts "\n"
   end
   
   def generate_shows
+    puts "\nGenerating shows at these venues:"
     @venues = Venue.all
     @venues.each do |venue|
+      puts "\n-#{venue.name}:\n"
       is_all_ages = "false"
       artist4 = ""
       if rand(3) == 1
@@ -37,7 +41,7 @@ class Seed
       end
       rand(1..50).times do
         name = Faker::Hipster.words(spaces_allowed: true)
-        show = Show.create!(
+        Show.create!(
           title: name.join(" ").titleize,
           artist1: Faker::Hipster.words(spaces_allowed: true).join(" ").titleize,
           artist2: Faker::Hipster.words(spaces_allowed: true).join(" ").titleize,
@@ -50,9 +54,10 @@ class Seed
           url: "#{venue.website}/#{name.join('-')}",
           venue_id: venue.id
         )
+        print "."
       end
     end
-    p "Created #{Show.count} shows at #{Venue.count} venues."
+    puts "\nCreated #{Show.count} shows at #{Venue.count} venues."
   end
 end
 
