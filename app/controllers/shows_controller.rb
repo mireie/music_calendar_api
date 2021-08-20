@@ -1,7 +1,7 @@
 class ShowsController < ApplicationController
 
   def index
-    @shows = Show.page(1)
+    @shows = Show.page(params[:page])
     json_response(@shows)
   end
 
