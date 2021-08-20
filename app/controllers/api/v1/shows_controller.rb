@@ -4,9 +4,9 @@ module Api::V1
 
     def index
       if @venue
-        json_response(@venue.shows.page)
+        json_response(@venue.shows.page(params[:page]))
       else
-        json_response(Show.all.page)
+        json_response(Show.all.page(params[:page]))
       end
     end
 
