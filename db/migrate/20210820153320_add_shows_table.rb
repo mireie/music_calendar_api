@@ -7,10 +7,12 @@ class AddShowsTable < ActiveRecord::Migration[6.1]
       t.string :artist3
       t.string :artist4
       t.datetime :showtime
-      t.string :location
       t.text :details
       t.decimal :price, :precision => 8, :scale => 2
       t.boolean :all_ages
+      t.string :url
+      t.integer :venue_id
+      t.timestamps
     end
   end
 end

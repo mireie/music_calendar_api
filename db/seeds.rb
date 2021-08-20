@@ -14,6 +14,7 @@ class Seed
     
     seed = Seed.new
     seed.generate_shows
+    seed.generate_venues
   end
 
   def generate_shows
