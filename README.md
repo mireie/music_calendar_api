@@ -161,5 +161,3 @@ Copyright (c) 2021 Michael Reiersgaard
 # Contact Information
 
 Michael Reiersgaard michael.reiersgaard [at] [gmail.com](http://gmail.com/)
-
-Postman info: [https://www.postman.com/winter-resonance-398702/workspace/music-calendar-api](https://www.postman.com/winter-resonance-398702/workspace/music-calendar-api)
