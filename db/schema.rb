@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2021_08_20_153320) do
     t.string "location"
     t.text "details"
     t.decimal "price", precision: 8, scale: 2
-    t.binary "all_ages"
+    t.boolean "all_ages"
   end
 
 end

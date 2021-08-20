@@ -10,7 +10,7 @@ class AddShowsTable < ActiveRecord::Migration[6.1]
       t.string :location
       t.text :details
       t.decimal :price, :precision => 8, :scale => 2
-      t.binary :all_ages
+      t.boolean :all_ages
     end
   end
 end
