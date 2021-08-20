@@ -5,4 +5,5 @@ class Show < ApplicationRecord
   scope :upcoming, -> {where("showtime >= ?", DateTime.now)}
   scope :next_week, -> {upcoming.where("showtime <= ?", DateTime.now+7)}
   scope :past, -> {where("showtime < ?", DateTime.now)}
+  scope :all_ages, -> {where("all_ages = true")}
 end

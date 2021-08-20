@@ -49,7 +49,8 @@ class ShowsController < ApplicationController
   end
 
   def all_ages
-
+    @shows = Show.all.all_ages.page(params[:page])
+    json_response(@shows, 200)
   end
 
   private

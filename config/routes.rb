@@ -5,6 +5,7 @@ Rails.application.routes.draw do
       get 'upcoming'
       get 'past'
       get 'next_week'
+      get 'all_ages'
     end
   end
 end
