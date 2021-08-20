@@ -33,6 +33,15 @@ class ShowsController < ApplicationController
     end
   end
 
+  def upcoming
+    @shows = Show.all.upcoming.page(params[:page])
+    json_response(@shows, 200)
+  end
+
+  def all_ages
+
+  end
+
   private
 
 end
