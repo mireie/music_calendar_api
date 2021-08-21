@@ -63,5 +63,9 @@ module Api::V1
     def set_venue
       @venue = @venue.shows.find_by!(id: params[:id]) if @venue
     end
+
+    def show_params
+      params.permit(:title, :artist1, :artist2, :artist4, :showtime, :details, :price, :all_ages, :url, :venue_id)
+    end
   end
 end

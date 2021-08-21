@@ -36,5 +36,11 @@ module Api::V1
     end
 
     private
+
+    def venue_params
+      params.permit(:name, :street_address, :city, :state, :zip_code, :website)
+    end
   end
 end
+
+
